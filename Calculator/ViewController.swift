@@ -19,8 +19,11 @@ class ViewController: UIViewController {
         if userIsinTheMiddleOfTyping {
             let textCurrentlyInDisplay = display.text!
             display.text = textCurrentlyInDisplay + digit
+            display.textColor = sender.backgroundColor
+            
         } else {
             display.text = digit
+            display.textColor = sender.backgroundColor
         }
         userIsinTheMiddleOfTyping = true
     }
@@ -42,6 +45,7 @@ class ViewController: UIViewController {
         if let mathematicalSymbol = sender.currentTitle {
             brain.performOperation(symbol: mathematicalSymbol)
             }
+        display.textColor = sender.backgroundColor
         displayValue = brain.result
     }
 }
