@@ -32,6 +32,7 @@ class ViewController: UIViewController {
             return Double(display.text!)!
         }
         set {
+            
             display.text! = String(newValue)
         }
     }
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
     private var brain = CalculatorBrain()
     @IBAction private func performOperation(_ sender: UIButton) {
         if userIsinTheMiddleOfTyping {
-            brain.setOperand(operand: displayValue)
+            brain.setOperand(operand: Double(displayValue))
             userIsinTheMiddleOfTyping = false
         }
         if let mathematicalSymbol = sender.currentTitle {
@@ -48,6 +49,14 @@ class ViewController: UIViewController {
         display.textColor = sender.backgroundColor
         displayValue = brain.result
     }
+    private func clearCurrentTextAndCalculation(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            display.text = ""
+            brain.setOperand(operand: 0.0)
+            userIsinTheMiddleOfTyping = false
+        }
+    }
 }
+
 
  

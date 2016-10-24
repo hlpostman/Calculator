@@ -61,7 +61,6 @@ class CalculatorBrain
         }
     }
     
-    
     private var pending: PendingBinaryOperationInfo?
     
     private struct PendingBinaryOperationInfo {
@@ -71,7 +70,7 @@ class CalculatorBrain
     
     var result: Double {
         get {
-            return accumulator
+           return accumulator
         }
     }
 }
