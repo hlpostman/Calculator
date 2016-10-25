@@ -14,6 +14,7 @@ class CalculatorBrain
     func setOperand (operand: Double) {
         accumulator = operand
     }
+
     private var operations: [String: Operation] = [
         "π" : Operation.Constant(M_PI),
         "e" : Operation.Constant(M_E),

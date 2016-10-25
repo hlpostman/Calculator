@@ -28,13 +28,23 @@ class ViewController: UIViewController {
         userIsinTheMiddleOfTyping = true
     }
     
-    @IBAction private func touchWatermelon(_ sender: UIButton) {
-        let watermelon = sender.currentTitle!
-        let textCurrentlyInDisplay = display.text!
-        display.text = watermelon
-      
-        userIsinTheMiddleOfTyping = true
-    }
+//    @IBAction private func touchWatermelon(_ sender: UIButton) {
+//        let watermelon = sender.currentTitle!
+//        if userIsinTheMiddleOfTyping {
+//            let textCurrentlyInDisplay = display.text!
+//            display.text = textCurrentlyInDisplay + watermelon
+//            display.textColor = sender.backgroundColor
+//            
+//        } else {
+//            display.text = watermelon
+//            display.textColor = sender.backgroundColor
+//        }
+//        userIsinTheMiddleOfTyping = true
+//        brain.setOperand(operand: 0.0)
+//        brain.pending?.firstOperand = 0.0
+//        userIsinTheMiddleOfTyping = false
+//        userIsinTheMiddleOfTyping = true
+//    }
 
     private var displayValue: Double {
         get {
@@ -53,10 +63,20 @@ class ViewController: UIViewController {
             userIsinTheMiddleOfTyping = false
         }
         if let mathematicalSymbol = sender.currentTitle {
-            brain.performOperation(symbol: mathematicalSymbol)
+            if mathematicalSymbol == "🍉" {
+                var watermelonString = ""
+                while (displayValue > 0) {
+                    watermelonString += "🍉"
+                    displayValue -= 1
+                }
+                display.text = watermelonString
             }
-        display.textColor = sender.backgroundColor
-        displayValue = brain.result
+            else {
+            brain.performOperation(symbol: mathematicalSymbol)
+            display.textColor = sender.backgroundColor
+            displayValue = brain.result
+            }
+        }
     }
     // Reset calculation upon shake:
     // User starts moving phone
