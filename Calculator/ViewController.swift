@@ -27,6 +27,15 @@ class ViewController: UIViewController {
         }
         userIsinTheMiddleOfTyping = true
     }
+    
+    @IBAction private func touchWatermelon(_ sender: UIButton) {
+        let watermelon = sender.currentTitle!
+        let textCurrentlyInDisplay = display.text!
+        display.text = watermelon
+      
+        userIsinTheMiddleOfTyping = true
+    }
+
     private var displayValue: Double {
         get {
             return Double(display.text!)!
@@ -49,10 +58,20 @@ class ViewController: UIViewController {
         display.textColor = sender.backgroundColor
         displayValue = brain.result
     }
-    private func clearCurrentTextAndCalculation(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
+    // Reset calculation upon shake:
+    // User starts moving phone
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == UIEventSubtype.motionShake {
+            print("\(motion) \(event)")
+        }
+    }
+
+    // User stops moving phone
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == UIEventSubtype.motionShake {
             display.text = ""
             brain.setOperand(operand: 0.0)
+            brain.pending?.firstOperand = 0.0
             userIsinTheMiddleOfTyping = false
         }
     }

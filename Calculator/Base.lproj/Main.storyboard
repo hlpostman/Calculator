@@ -35,6 +35,7 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7Ck-WO-Q5l">
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <color key="textColor" red="0.76251902181676756" green="0.31429450376422224" blue="0.97997134923934937" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -310,7 +311,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="touchDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BNC-Qu-Szo"/>
+                                                    <action selector="touchDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ldl-8n-iNi"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lq4-rT-peR">
@@ -329,9 +330,6 @@
                                                 <state key="normal" title="🍉">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="performOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mku-bT-hwM"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

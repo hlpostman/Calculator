@@ -61,9 +61,9 @@ class CalculatorBrain
         }
     }
     
-    private var pending: PendingBinaryOperationInfo?
+    var pending: PendingBinaryOperationInfo?
     
-    private struct PendingBinaryOperationInfo {
+    struct PendingBinaryOperationInfo {
         var function: (Double, Double) -> Double
         var firstOperand: Double
     }
